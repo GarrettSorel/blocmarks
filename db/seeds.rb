@@ -10,10 +10,10 @@ topics = Topic.all
 100.times do
   Bookmark.create!(
     topic: topics.sample,
-    url: RandomData.random_paragraph
+    url: "http://google.com"
   )
 end
  
 puts "Seed finished"
 puts "#{Topic.count} topics created"
-puts "#{Bookmark.count} bookmarkss created"
+puts "#{Bookmark.count} bookmarks created"
