@@ -10,7 +10,9 @@ topics = Topic.all
 100.times do
   Bookmark.create!(
     topic: topics.sample,
-    url: "http://google.com"
+    url: "http://google.com",
+    title: RandomData.random_sentence,
+    description: RandomData.random_paragraph
   )
 end
  
