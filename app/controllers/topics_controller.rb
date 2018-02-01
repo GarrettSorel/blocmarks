@@ -12,7 +12,7 @@ class TopicsController < ApplicationController
   end
   
   def create
-    @topic = Topic.new
+    @topic = current_user.topics.new
     @topic.title = params[:topic][:title]
  
     if @topic.save
@@ -51,5 +51,11 @@ class TopicsController < ApplicationController
       flash.now[:alert] = "There was an error deleting the topic."
       render :show
     end
+  end
+  
+  private
+  
+  def topic_params
+    params.require(:topic).permit(:title)
   end
 end

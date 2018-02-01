@@ -5,13 +5,13 @@ class BookmarksController < ApplicationController
 
   def new
     @topic = Topic.find(params[:topic_id])
-    @bookmark = Bookmark.new
+    @bookmark = @topic.bookmarks.new
   end
   
   def create
-    @bookmark = Bookmark.new
-    @bookmark.url = params[:bookmark][:url]
     @topic = Topic.find(params[:topic_id])
+    @bookmark = current_user.bookmarks.new
+    @bookmark.url = params[:bookmark][:url]
     @bookmark.topic = @topic
  
     if @bookmark.save
@@ -52,4 +52,6 @@ class BookmarksController < ApplicationController
       render :show
     end
   end
+  
 end
+
