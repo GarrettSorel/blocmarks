@@ -4,8 +4,7 @@ class BookmarksController < ApplicationController
   end
 
   def new
-    @topic = Topic.find(params[:topic_id])
-    @bookmark = @topic.bookmarks.new
+    @bookmark = Bookmark.new
   end
   
   def create
