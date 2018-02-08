@@ -3,6 +3,7 @@ require 'random_data'
 50.times do
   Topic.create!(
     title:  RandomData.random_sentence,
+    user_id: users.sample
   )
 end
 topics = Topic.all
@@ -12,7 +13,8 @@ topics = Topic.all
     topic: topics.sample,
     url: "http://google.com",
     title: RandomData.random_sentence,
-    description: RandomData.random_paragraph
+    description: RandomData.random_paragraph,
+    user_id: users.sample
   )
 end
  
