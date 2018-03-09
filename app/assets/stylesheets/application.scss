@@ -13,26 +13,13 @@
  *= require_tree .
  *= require_self
  */
- 
- @import "bootstrap-sprockets";
- @import "bootstrap";
- 
-body {
- background-color: black;
-}
-
-.nav {
- color: white;
-}
+@import "materialize";
 
 .navbar-link {
  color: white;
 }
 
-h1, h2, h3, h4, p {
- color: white;
-}
-
-.field {
- color: white;
+#username {
+ display: inline;
+ text-decoration: underline;
 }

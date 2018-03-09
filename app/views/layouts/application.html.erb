@@ -8,22 +8,33 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="container">
-    <ul class="nav nav-tabs">
-      <li><%= link_to "Home", root_path, :class => 'navbar-link' %></li>
-      <li><%= link_to "Topics", topics_path, :class => 'navbar-link' %></li>
-      <li><%= link_to "My Profile", users_show_path, :class => 'navbar-link' %></li>
-      <div class="container">
+  
+  <nav class="nav-extended">
+    <div class="nav-wrapper black left-align">
+      <h1 class="brand-logo">G-Marks</h1>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
         <% if user_signed_in? %>
-         <li class="pull-right">Signed in as: <strong><%= link_to current_user.email, users_show_path %></strong></li><br />
-         <li class="pull-right"><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> | <%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
+          <li><%= link_to current_user.email, users_show_path, :class => 'navbar-link', :id => 'username' %> | </li>
+          <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
         <% else %>
-         <li class="pull-right"><%= link_to "Sign Up", new_user_registration_path, :class => 'navbar-link'  %> | 
-         <%= link_to "Sign In", new_user_session_path, :class => 'navbar-link'  %></li>
+          <li><%= link_to "Sign Up", new_user_registration_path, :class => 'navbar-link'  %></li>  
+          <li><%= link_to "Sign In", new_user_session_path, :class => 'navbar-link'  %></li>
         <% end %>
-      </ul>   
-    <%= yield %>
-  </div>  
+      </ul>
+    </div>
+    <div class="nav-content black">
+      <ul class="tabs tabs-transparent">
+        <li class="tab"><%= link_to "Home", root_path, :class => 'navbar-link' %></li>
+        <li class="tab"><%= link_to "Topics", topics_path, :class => 'navbar-link' %></li>  
+        <li class="tab"><%= link_to "My Profile", users_show_path, :class => 'navbar-link' %></li>  
+      </ul>
+    </div>
+</nav>
 
+  
+  <div class="container">
+    <%= yield %>
+  </div>
+  
 </body>
 </html>
