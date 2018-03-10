@@ -6,6 +6,7 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
   
@@ -29,12 +30,36 @@
         <li class="tab"><%= link_to "My Profile", users_show_path, :class => 'navbar-link' %></li>  
       </ul>
     </div>
-</nav>
-
+  </nav>
   
-  <div class="container">
-    <%= yield %>
-  </div>
+  <main>
+    <div class="container">
+      <%= yield %>
+    </div>
+  </main>
   
+  <footer class="page-footer black">
+    <div class="container">
+      <div class="row">
+        <div class="col 16 s12">
+          <h5 class="white-text">G-Marks</h5>
+          <p class="grey-text text-lighten-4">Your go-to site for web bookmarks.</p>
+        </div>
+        <div class="col 14 s12">
+          <h5 class="white-text">Follow Us:</h5>
+          <ul>
+            <li><a class="grey-text text-lighten-3" href="#!">Facebook</li>
+            <li><a class="grey-text text-lighten-3" href="#!">Twitter</li>
+            <li><a class="grey-text text-lighten-3" href="#!">Instagram</li>
+          </ul>
+        </div>
+        </div>
+      </div>
+    <div class="footer-copyright">
+      <div class="container">
+        © 2018 Garrett Sorel
+      </div>
+    </div>
+  </footer>  
 </body>
 </html>

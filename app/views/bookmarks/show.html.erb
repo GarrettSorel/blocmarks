@@ -1,8 +1,7 @@
-<div class="container">
+<div class="container center-align">
 
-  <h1 class="text-center"><%= @bookmark.url %></h1>
+  <h1><%= @bookmark.url %></h1>
 
-  <div class="text-center">
     <% if policy(@bookmark).edit? %>
       <%= link_to "Edit Bookmark", edit_topic_bookmark_path, class: 'btn btn-success' %>
     <% end %>
@@ -12,15 +11,14 @@
   
     <% if policy(Like.new).create? %>
       <% if like = current_user.liked(@bookmark) %>
-        <%= link_to [@bookmark, like], class: 'btn btn-danger', method: :delete do %>
-          <i class="glyphicon glyphicon-star-empty"> </i>&nbsp; Unlike
+        <%= link_to [@bookmark, like], class: 'waves-effect waves-heavy btn-large red', method: :delete do %>
+          <i class="small material-icons left">thumb_down</i>&nbsp; Unlike
         <% end %>
       <% else %>
-        <%= link_to [@bookmark, Like.new], class: 'btn btn-primary', method: :post do %>
-          <i class="glyphicon glyphicon-star"> </i>&nbsp; Like
+        <%= link_to [@bookmark, Like.new], class: 'waves-effect waves-heavy btn-large', method: :post do %>
+          <i class="small material-icons left">thumb_up</i>&nbsp; Like
         <% end %>
       <% end %>
   <% end %>
 
-  </div>
 </div>

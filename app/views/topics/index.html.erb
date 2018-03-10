@@ -1,15 +1,14 @@
-<div class="container">
-  <div class="col-md-12 text-center">
-     <h1>Topics</h1>
-    <%= link_to "New Topic", new_topic_path, class: 'btn btn-success' %>
-  </div>
+<div class="container center-align">
+  <h1>Topics</h1>
+  <%= link_to "New Topic", new_topic_path, class: 'btn btn-success' %>
 
- 
-  <% @topics.each do |topic| %>
-    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 text-center">
-      <h4 class="media-heading">
+  <div class="row">
+    <% @topics.each do |topic| %>
+      <div class="col s12 m6 l4">
+      <h4>  
         <%= link_to topic.title, topic %>
       </h4>
-    </div>
-  <% end %>
+      </div>
+      <% end %>
+  </div>
 </div>
