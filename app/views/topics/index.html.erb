@@ -1,14 +1,24 @@
 <div class="container center-align">
   <h1>Topics</h1>
   <%= link_to "New Topic", new_topic_path, class: 'btn btn-success' %>
+</div>
 
+<div class="container center-align content-padding">  
   <div class="row">
     <% @topics.each do |topic| %>
       <div class="col s12 m6 l4">
-      <h4>  
-        <%= link_to topic.title, topic %>
-      </h4>
-      </div>
+        <div class="card">
+            <div class="card-image">
+              <img src="http://buninyongps.vic.edu.au/wp-content/uploads/2013/12/Gallery-Link-190x190.jpg">
+            </div>
+            <div class="card-content">
+              <p>This is a sample bookmark. This is where a description should go.</p>
+            </div>
+            <div class="card-action center-align">
+              <%= link_to topic.title, topic %>
+            </div>
+          </div>
+        </div>
       <% end %>
   </div>
 </div>
