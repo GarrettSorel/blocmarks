@@ -1,32 +1,40 @@
  <h1 class="center-align">Profile</h1>
  
- <div class="row">
-   <div class="col-md-8">
-       <h2> Created Bookmarks </h2>  
-     <% @user_bookmarks.each do |bookmark| %>
-       <div class="media">
-         <div class="media-body">
-           <h4 class="media-heading">
+ <div class="container content-padding">
+   <div class="row">
+       <h2 class="center-align"> Created Bookmarks </h2>  
+       <% @user_bookmarks.each do |bookmark| %>
+       <div class="col s12 m6 l4">
+        <div class="card">
+          <div class="card-image">
+            <img src="http://buninyongps.vic.edu.au/wp-content/uploads/2013/12/Gallery-Link-190x190.jpg">
+          </div>
+          <div class="card-action left-align">
              <%= link_to bookmark.url, topic_bookmark_path(bookmark.topic, bookmark) %>
-           </h4>
+           </div>  
          </div>
        </div>
      <% end %>
    </div>
+ </div>  
    
    <br />
    
-   <div class="col-md-8">
-     <h2> Liked Bookmarks </h2>  
+   <div class="container content-padding">
+    <div class="row">
+     <h2 class="center-align"> Liked Bookmarks </h2>  
      <% @liked_bookmarks.each do |bookmark| %>
-       <div class="media">
-         <div class="media-body">
-           <h4 class="media-heading">
+       <div class="col s12 m6 l4">
+          <div class="card">
+            <div class="card-image">
+              <img src="http://buninyongps.vic.edu.au/wp-content/uploads/2013/12/Gallery-Link-190x190.jpg">
+            </div>
+            <div class="card-action left-align">
              <%= link_to bookmark.url, topic_bookmark_path(bookmark.topic, bookmark) %>
-             <div>
-               <%= render partial: 'likes/like', locals: { bookmark: bookmark } %>
-             </div>
-           </h4>
+            </div>
+            <div class="card-content center-align">
+             <%= render partial: 'likes/like', locals: { bookmark: bookmark } %>
+            </div> 
          </div>
        </div>
      <% end %>
